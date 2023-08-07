@@ -26,7 +26,7 @@
 		
 		<link
 			rel="shortcut icon"
-			href="https://raw.githubusercontent.com/ch1ny/PictureCDN/master/others/116359b4ccf19917.jpg"
+			href="https://gitee.com/wengerking/blog1/tree/master/blog.jpg"
 			type="image/png"
 		/>
 		
@@ -52,7 +52,7 @@
 	<body>
 		<div
 			class="kira-background"
-			style="background-image: url('https://raw.githubusercontent.com/ch1ny/PictureCDN/master/others/f0d5cc34c6e5aa7.jpg')"
+			style="background-image: url('https://gitee.com/wengerking/blog1/tree/master/blog.jpg')"
 		></div>
 		<div class="kira-header">
     <a
@@ -64,7 +64,7 @@
     </a>
     <a href="/" title="光创实验室">
         <img
-			src="https://raw.githubusercontent.com/ch1ny/PictureCDN/master/others/116359b4ccf19917.jpg"
+			src="https://gitee.com/wengerking/blog1/tree/master/blog.jpg"
 			alt="John Doe"
 		/>
     </a>
@@ -72,9 +72,9 @@
 		<div class="kira-body">
 			<div class="kira-sidebar" id="sidebar">
 	<div class="kira-avatar mdui-ripple">
-		<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/ch1ny/PictureCDN/master/others/116359b4ccf19917.jpg" title="John Doe">
+		<a target="_blank" rel="noopener" href="https://gitee.com/wengerking/blog1/tree/master/blog.jpg" title="John Doe">
 			<img
-				src="https://raw.githubusercontent.com/ch1ny/PictureCDN/master/others/116359b4ccf19917.jpg"
+				src="https://gitee.com/wengerking/blog1/tree/master/blog.jpg"
 				alt="John Doe"
 			/>
 		</a>
@@ -203,7 +203,7 @@
 		
 			<a
 				class="mdui-ripple"
-				href="https://gitee.com/ch1ny/"
+				href="https://gitee.com/wengerking"
 				target="_blank"
 				mdui-tooltip="{content: 'Gitee'}"
 				style="color: rgb(165, 15, 15); background-color: rgba(165, 15, 15, .15);"
@@ -297,10 +297,10 @@
 		
 		<div
 			class="kira-post-cover"
-			style="padding-bottom: '56.25%'"
+			style="padding-bottom: '66.66666666666666%'"
 		>
 			<img
-				data-src="https://raw.githubusercontent.com/ch1ny/PictureCDN/master/others/f0d5cc34c6e5aa7.jpg"
+				data-src="https://gitee.com/wengerking/blog1/tree/master/blog.jpg"
 				data-sizes="auto"
 				alt="Hello World"
 				class="lazyload kira-post-cover-image disabled-kira-image"
@@ -347,6 +347,22 @@
 	
 	<div class="kira-post-footer">
 		
+	<link rel="stylesheet" href="https://unpkg.com/gitalk@latest/dist/gitalk.css" />
+	<div id="gitalk"></div>
+	<script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+	<script type="text/javascript">
+		const gitalk = new Gitalk({
+			clientID: '-id-',
+			clientSecret: '-key-',
+			id: 'Hello World',
+			repo: '-issue repo name-',
+			owner: '-your github username-',
+			admin: '-your github username-',
+			title: '',
+		});
+		gitalk.render('gitalk');
+	</script>
+
 
 		
 	<div class="giscus"></div>
