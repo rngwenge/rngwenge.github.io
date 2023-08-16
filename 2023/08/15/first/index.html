@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/css/layout.css">
 
 		
-		<title> 树莓派pico使用指南 -  光创实验室</title>
+		<title> 实验室简介 -  光创实验室</title>
 		<link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css" />
 		<script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
 		<!-- lazyload -->
@@ -80,7 +80,7 @@
 		</a>
 	</div>
 	<div class="kira-count">
-		<div><span>文章</span>3</div>
+		<div><span>文章</span>2</div>
 		<div><span>标签</span>0</div>
 		<div><span>分类</span>0</div>
 	</div>
@@ -252,27 +252,32 @@
 		
 		<div class="kira-post-cover">
 			<img
-				data-src="https://s1.imagehub.cc/images/2023/08/12/pico.jpeg"
+				data-src="https://s1.imagehub.cc/images/2023/08/07/blog.jpeg"
 				data-sizes="auto"
-				alt="树莓派pico使用指南"
+				alt="实验室简介"
 				class="lazyload kira-post-cover-image disabled-kira-image"
 			/>
-			<h1>树莓派pico使用指南</h1>
+			<h1>实验室简介</h1>
 		</div>
 		
 		<div class="kira-post-meta kira-rainbow" style="margin:10px 0!important;">
-			<a><i class="kirafont icon-calendar-fill"></i>2022年08月12日</a>
-			<a><i class="kirafont icon-edit-fill"></i>325 字</a>
-			<a><i class="kirafont icon-time-circle-fill"></i>大概 1 分钟</a>
+			<a><i class="kirafont icon-calendar-fill"></i>2023年08月15日</a>
+			<a><i class="kirafont icon-edit-fill"></i>700 字</a>
+			<a><i class="kirafont icon-time-circle-fill"></i>大概 2 分钟</a>
 		</div>
-		<h3><span id="一初识pico">一.初识pico</span></h3><p>这是树莓派经济型的单片机开发板，在同价位里性能较高，也更易于入手学习</p>
-<p>1.单片机最核心的部分就是芯片，pico使用的芯片：RP2040<br>具备较高的处理能力和低功耗特性<br>双核 Arm Cortex-M0 + @ 133MHz<br>芯片内置 264KB SRAM 和 2MB 的板载闪存<br>通过专用 QSPI 总线支持最高 16MB 的片外闪存<br>30 个 GPIO 引脚，其中 4 个可用作模拟输入<br>2 个 UART、2 个 SPI 控制器和 2 个 I2C 控制器<br>16 个 PWM 通道<br>USB 1.1 主机和设备支持<br>8 个树莓派可编程 I&#x2F;O（PIO）状态机，用于自定义外围设备支持<br>支持 UF2 的 USB 大容量存储启动模式，用于拖放式编程</p>
-<p>3.通电方式<br>①.可以通过USB线连接电脑和pico实现通电（实质上电脑输出5v电压，通过usb口连接VBUS引脚供电）<br>②.通过导线连接电池供电：2V~5V的电池正极通过导线连接VBUS或VSYS引脚，负极连接任意GND均可为pico供电</p>
-<p>###二.怎样使用pico<br>首先需要安装thonny，thonny是一款用于学习Python编程的集成开发环境（IDE）,我们在这个软件上为pico编写程序</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><br></code></pre></td></tr></table></figure>
+		<h3><span id="实验室简介">实验室简介</span></h3><p>光创实验室是一个以软件、硬件电路设计为主要方向的面向全校的开放实验室。在软件方向上，实验室鼓励成员学习Python和C&#x2F;C++，并应用于stm32和ESP32等平台的智能小车、物联网、智能电器、四旋翼飞行器和游戏机等项目开发，实验室也注重linux开发和OpenCV视觉的应用开发。在硬件方向上，实验室提供3D打印技术的培训，学习元器件的熟悉与焊接，以及探索云台控制和机械臂等硬件项目。</p>
+<p>对于新生，光创实验室表示热烈欢迎！作为一个有着多样化学习方向和竞赛准备的实验室，我们鼓励新生积极参与到各种项目中去，探索自己的兴趣和潜力。我们提供团队合作和技术指导的机会，帮助新生快速融入实验室的氛围，并与其他成员一起成长和学习。无论是对软件开发、硬件设计还是电路应用感兴趣的新生，光创实验室都将为你提供良好的学习平台和发展机会。欢迎加入光创实验室！</p>
+<h3><span id="各方向介绍">各方向介绍</span></h3><img data-fancybox="gallery" data-sizes="auto" data-src="https://s1.imagehub.cc/images/2023/08/16/2eefc1db7a449edcdadab0889d3abb3a.png" alt="实验室学习路线" class="lazyload">
+实验室分为两个大方向，分别是软件和硬件，两个方向前期也会有一些细分，请同学们先只选择其中一条路线，等入门后可根据兴趣，调整路线，因为各个方向其实最终殊途同归，都是为了同学们能更好掌握知识，在光电赛，电赛，蓝桥杯中获得更好的奖项。<br> <br>  
+---软件---<br> 
+①希望制作类似于智能家居，蓝牙音响等diy电子项目，学习图像处理，机器视觉，神经网络，接触linux操作系统，请选择学习专区：Python/c++<br> 
+②希望制作智能小车，二维云台，机械臂，无人机等运动类项目的，请选择学习c语言  <br> <br>
+---硬件---<br> 
+①希望设计自己的小车机械外壳，使用3d打印机diy手办制作的，请选择硬件方向  <br>
+②希望设计电路，学习电路知识，体验焊接，制作充电器，diy手柄，炫彩led灯，请选择硬件方向
 
-
-
+<h3><span id="确定方向后">确定方向后</span></h3><p>请移步对应方向专区，根据专区指引进行下一步学习</p>
+<h3><span id="后话">后话</span></h3><p>再次欢迎大家来到光创实验室，我们鼓励大家多多和认识的同学宣传光创实验室，加入实验室有很多福利：不仅能学到专业计算机、电子知识，而且能够参加多项比赛，获得更高绩点，争取奖学金，为考研找工作打下基础。</p>
 
 	</article>
 
@@ -301,7 +306,7 @@
 		const gitalk = new Gitalk({
 			clientID: '-id-',
 			clientSecret: '-key-',
-			id: '树莓派pico使用指南',
+			id: '实验室简介',
 			repo: '-issue repo name-',
 			owner: '-your github username-',
 			admin: '-your github username-',
