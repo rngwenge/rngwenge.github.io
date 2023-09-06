@@ -262,16 +262,16 @@
 		
 		<div class="kira-post-meta kira-rainbow" style="margin:10px 0!important;">
 			<a><i class="kirafont icon-calendar-fill"></i>2050年08月12日</a>
-			<a><i class="kirafont icon-edit-fill"></i>231 字</a>
+			<a><i class="kirafont icon-edit-fill"></i>212 字</a>
 			<a><i class="kirafont icon-time-circle-fill"></i>大概 1 分钟</a>
 		</div>
-		<h3><span id="一初识pico">一.初识pico</span></h3><p>这是树莓派经济型的单片机开发板，在同价位里性能较高，也更易于入手学习<br>1.单片机最核心的部分就是芯片，pico使用的芯片：RP2040<br>具备较高的处理能力和低功耗特性<br> <br><br>2.通电方式<br>①.可以通过USB线连接电脑和pico实现通电（实质上电脑输出5v电压，通过usb口连接VBUS引脚供电）<br>②.通过导线连接电池供电：2V~5V的电池正极通过导线连接VBUS或VSYS引脚，负极连接任意GND均可为pico供电</p>
-<p>###二.怎样使用pico<br>首先需要安装thonny，我们在这个软件上为pico编写程序 <br><br>下面视频中用到的文件都在这里，无需再去下载视频里的文件了<br>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1e86ZQY_sW_pr_vpyeFJwjg?pwd=xsak">https://pan.baidu.com/s/1e86ZQY_sW_pr_vpyeFJwjg?pwd=xsak</a>  </p>
+		<h3><span id="一初识pico">一.初识pico</span></h3><p>这是树莓派经济型的单片机开发板，在同价位里性能较高，也更易于入手学习<br>1.单片机最核心的部分就是芯片，pico使用的芯片：RP2040<br>具备较高的处理能力和低功耗特性<br> <br><br>2.通电方式<br>①.可以通过USB线连接电脑和pico实现通电（实质上电脑输出5v电压，通过usb口连接VBUS引脚供电）</p>
+<p>###二.怎样使用pico<br>首先需要安装thonny，我们在这个软件上为pico编写程序 <br><br>下面视频中用到的uf2文件和软件都在这里，无需再去下载视频里的文件了<br>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1e86ZQY_sW_pr_vpyeFJwjg?pwd=xsak">https://pan.baidu.com/s/1e86ZQY_sW_pr_vpyeFJwjg?pwd=xsak</a>  </p>
 <p>下面链接中的视频提供了软件安装方法</p>
 <iframe src="//player.bilibili.com/player.html?aid=799043731&bvid=BV1Fy4y1Y7um&cid=294559600&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">from machine import Pin<br>import time<br><br>led = Pin(25, Pin.OUT)<br><br><span class="hljs-keyword">while</span> True:<br>	led.toggle()<br>	time.sleep(1)<br></code></pre></td></tr></table></figure>
 
 
 
