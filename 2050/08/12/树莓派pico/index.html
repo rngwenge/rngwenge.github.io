@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/css/layout.css">
 
 		
-		<title> 树莓派pico使用指南 -  光创实验室</title>
+		<title> 树莓派pico入门指南 -  光创实验室</title>
 		<link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css" />
 		<script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
 		<!-- lazyload -->
@@ -254,27 +254,26 @@
 			<img
 				data-src="https://s1.imagehub.cc/images/2023/08/12/pico.jpeg"
 				data-sizes="auto"
-				alt="树莓派pico使用指南"
+				alt="树莓派pico入门指南"
 				class="lazyload kira-post-cover-image disabled-kira-image"
 			/>
-			<h1>树莓派pico使用指南</h1>
+			<h1>树莓派pico入门指南</h1>
 		</div>
 		
 		<div class="kira-post-meta kira-rainbow" style="margin:10px 0!important;">
 			<a><i class="kirafont icon-calendar-fill"></i>2050年08月12日</a>
-			<a><i class="kirafont icon-edit-fill"></i>212 字</a>
+			<a><i class="kirafont icon-edit-fill"></i>334 字</a>
 			<a><i class="kirafont icon-time-circle-fill"></i>大概 1 分钟</a>
 		</div>
-		<h3><span id="一初识pico">一.初识pico</span></h3><p>这是树莓派经济型的单片机开发板，在同价位里性能较高，也更易于入手学习<br>1.单片机最核心的部分就是芯片，pico使用的芯片：RP2040<br>具备较高的处理能力和低功耗特性<br> <br><br>2.通电方式<br>①.可以通过USB线连接电脑和pico实现通电（实质上电脑输出5v电压，通过usb口连接VBUS引脚供电）</p>
-<p>###二.怎样使用pico<br>首先需要安装thonny，我们在这个软件上为pico编写程序 <br><br>下面视频中用到的uf2文件和软件都在这里，无需再去下载视频里的文件了<br>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1e86ZQY_sW_pr_vpyeFJwjg?pwd=xsak">https://pan.baidu.com/s/1e86ZQY_sW_pr_vpyeFJwjg?pwd=xsak</a>  </p>
+		<h3><span id="一初识pico">一.初识pico</span></h3><p>这是树莓派经济型的单片机开发板，在同价位里性能较高，也更易于入手学习<br>1.单片机最核心的部分就是芯片，pico使用的芯片：RP2040<br>具备较高的处理能力和低功耗特性</p>
+<h3><span id="二怎样使用pico">二.怎样使用pico</span></h3><p>首先需要安装thonny，我们在这个软件上为pico编写程序 <br><br>下面视频中用到的uf2文件和软件都在这里，无需再去下载视频里的文件了<br>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1e86ZQY_sW_pr_vpyeFJwjg?pwd=xsak">https://pan.baidu.com/s/1e86ZQY_sW_pr_vpyeFJwjg?pwd=xsak</a>  </p>
 <p>下面链接中的视频提供了软件安装方法</p>
 <iframe src="//player.bilibili.com/player.html?aid=799043731&bvid=BV1Fy4y1Y7um&cid=294559600&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
+<p>测试用代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">from machine import Pin <span class="hljs-comment">#从一个称为machine的库中导入了Pin这个功能，用来控制硬件设备上的引脚。</span><br>import time             <span class="hljs-comment">#导入time库，包含了与时间相关的函数和方法。</span><br><br>led = Pin(25, Pin.OUT) <span class="hljs-comment">#创建了一个名为led的对象，代表引脚号为25的GPIO（查看引脚图，led所在即引脚就是GP25）</span><br><span class="hljs-keyword">while</span> True:            <span class="hljs-comment">#这是一个无限循环的语句，意味着下面缩进的代码会一直重复执行，为了让程序一直运行，这是一种常见操作</span><br>	led.toggle()   <span class="hljs-comment">#用于切换LED灯的状态</span><br>	time.sleep(1)  <span class="hljs-comment">#延时1秒</span><br></code></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">from machine import Pin<br>import time<br><br>led = Pin(25, Pin.OUT)<br><br><span class="hljs-keyword">while</span> True:<br>	led.toggle()<br>	time.sleep(1)<br></code></pre></td></tr></table></figure>
-
-
-
+<p>若看到pico上的灯以一秒间隔闪烁一次，则成功</p>
 
 	</article>
 
@@ -303,7 +302,7 @@
 		const gitalk = new Gitalk({
 			clientID: '-id-',
 			clientSecret: '-key-',
-			id: '树莓派pico使用指南',
+			id: '树莓派pico入门指南',
 			repo: '-issue repo name-',
 			owner: '-your github username-',
 			admin: '-your github username-',
