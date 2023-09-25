@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/css/layout.css">
 
 		
-		<title> 小贴士合集 -  光创实验室</title>
+		<title> 小贴士合集【九月】 -  光创实验室</title>
 		<link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css" />
 		<script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
 		<!-- lazyload -->
@@ -254,16 +254,16 @@
 			<img
 				data-src="https://s1.imagehub.cc/images/2023/09/15/srchttp___ci.xiaohongshu.com_b32762d6-e5f8-de67-682a-06c18bdba2af_imageView2_2_w_1080_format_jpgreferhttp___ci.xiaohongshu.webp"
 				data-sizes="auto"
-				alt="小贴士合集"
+				alt="小贴士合集【九月】"
 				class="lazyload kira-post-cover-image disabled-kira-image"
 			/>
-			<h1>小贴士合集</h1>
+			<h1>小贴士合集【九月】</h1>
 		</div>
 		
 		<div class="kira-post-meta kira-rainbow" style="margin:10px 0!important;">
 			<a><i class="kirafont icon-calendar-fill"></i>2023年09月15日</a>
-			<a><i class="kirafont icon-edit-fill"></i>1.4k 字</a>
-			<a><i class="kirafont icon-time-circle-fill"></i>大概 5 分钟</a>
+			<a><i class="kirafont icon-edit-fill"></i>2k 字</a>
+			<a><i class="kirafont icon-time-circle-fill"></i>大概 8 分钟</a>
 		</div>
 		<h3><span id="2023x2f9x2f9">2023&#x2F;9&#x2F;9</span></h3><p>快捷键小贴士：<br>常用4个快捷键介绍，ctrl+c复制，ctrl+v粘贴，ctrl+x剪贴，ctrl+z撤销上一步操作</p>
 <h3><span id="2023x2f9x2f10">2023&#x2F;9&#x2F;10</span></h3><p>Ctrl + A： 选中全部内容。<br>ctrl + f 全文查找所需字符<br>Ctrl+S： 保存<br>Ctrl+N： 新建<br>Ctrl + 鼠标滑轮 放大缩小界面</p>
@@ -290,6 +290,14 @@
 <li>内存就是葡萄糖，性能一般，不能长期储存，但是储存量比较多；</li>
 <li>外存（比如固态硬盘，U盘）就是脂肪，容量可以非常大，并且可以长期储存，性能相较于更差，要先转化为葡萄糖（先把数据存进内存），然后转化为 ATP（放到寄存器）才能直接利用。</li>
 </ol>
+<h3><span id="2023x2f9x2f22">2023&#x2F;9&#x2F;22</span></h3><p>单片机小知识——超声波模块<br><img data-fancybox="gallery" data-sizes="auto" data-src="https://s1.imagehub.cc/images/2023/09/25/QQ20230925150538.jpeg" alt="1" class="lazyload"></p>
+<p>本模块使用方法简单,模块连在vcc和gnd上供电，再连在一个IO口上，IO口发一个10US以上的高电平,就可以在接收口等待高电平输出.此时超声波模块自动发送8个40khz的方波，有输出就可以开定时器计时。当此口变为低电平时，说明有声波遇到障碍物返回，就可以读定时器的值,高电平持续的时间就是超声波从发射到返回的时间，时间*声速&#x2F;2&#x3D;路程（声波来回是两段距离，所以÷2），可算出距离.如此不断的重复测量,即可以实现移动测距。</p>
+<h3><span id="2023x2f9x2f23">2023&#x2F;9&#x2F;23</span></h3><p>单片机小知识——脉冲<br><img data-fancybox="gallery" data-sizes="auto" data-src="https://s1.imagehub.cc/images/2023/09/25/5aef2468560e96a6e31b2d2a76da835f.jpeg" alt="1" class="lazyload"></p>
+<h3><span id="2023x2f9x2f24">2023&#x2F;9&#x2F;24</span></h3><p>单片机小知识——波形</p>
+<p>前情提要：<br>假设脉冲信号的周期为t，脉冲宽度为t1，关于脉冲的基本概念如下。<br>频率：指脉冲信号周期在一秒内变化的次数，即f &#x3D; 1&#x2F;T的周期越小，频率越大。<br>脉冲宽度越接近周期T，占空比越大，脉冲信号平均值也越大。</p>
+<p>连续的脉冲信号就可以产生“波形“”。<br>波形，就是电压或电流随时间变化的函数图像。大家在高中题目中应该已经见过一些了，经常见到的一般是方波，直流波和正弦波。<br>我们经常需要产生一些波形做为信号波形，如正弦波、方波、矩形波、三角波等。这些波形通常会被用于时钟信号、触发脉冲、定时信号等。<br><img data-fancybox="gallery" data-sizes="auto" data-src="https://s1.imagehub.cc/images/2023/09/25/fcef1c016c6e2585e18e7959896d06ef.png" alt="1" class="lazyload"></p>
+<h3><span id="2023x2f9x2f25">2023&#x2F;9&#x2F;25</span></h3><p>单片机小知识——方波 </p>
+<p>方波是一种对称、每半个周期时间是相同的波形，具有非常陡峭的上下升沿，顶部和底部平坦。当用于数字电路时，正脉冲宽度时间称为周期的“占空比”，方波波形的高电平时间和低电平时间是一样的，所以占空比是50%。<br>我们可以尝试计算一下方波的频率，当一个方波的脉冲宽度为10ms，因为占空比为50%，那么周期就为10ms+10ms&#x3D;20ms，频率&#x3D;1&#x2F;T&#x3D;1s&#x2F;20ms&#x3D;50Hz。<br>方波常用于电路中的时钟控制信号和触发信号。<br>像在前几天的超声波模块里就提到了方波，那里的作用就是触发信号：当IO口变为高电平时，超声波模块开始发送8个40kHz方波信号。这个触发信号告诉超声波模块开始工作，并发射出超声波</p>
 
 	</article>
 
@@ -318,7 +326,7 @@
 		const gitalk = new Gitalk({
 			clientID: '-id-',
 			clientSecret: '-key-',
-			id: '小贴士合集',
+			id: '小贴士合集【九月】',
 			repo: '-issue repo name-',
 			owner: '-your github username-',
 			admin: '-your github username-',
