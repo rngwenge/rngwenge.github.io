@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/css/layout.css">
 
 		
-		<title> C/C++入门 -  光创实验室</title>
+		<title> 小贴士合集【十月】 -  光创实验室</title>
 		<link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css" />
 		<script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
 		<!-- lazyload -->
@@ -252,24 +252,23 @@
 		
 		<div class="kira-post-cover">
 			<img
-				data-src="https://s1.imagehub.cc/images/2023/08/16/7079cee138b1d4550a0fe23d61821335.jpeg"
+				data-src="https://s1.imagehub.cc/images/2023/09/22/Cache_-5243a2ab01469e3f..jpeg"
 				data-sizes="auto"
-				alt="C/C++入门"
+				alt="小贴士合集【十月】"
 				class="lazyload kira-post-cover-image disabled-kira-image"
 			/>
-			<h1>C/C++入门</h1>
+			<h1>小贴士合集【十月】</h1>
 		</div>
 		
 		<div class="kira-post-meta kira-rainbow" style="margin:10px 0!important;">
-			<a><i class="kirafont icon-calendar-fill"></i>2023年08月16日</a>
-			<a><i class="kirafont icon-edit-fill"></i>234 字</a>
+			<a><i class="kirafont icon-calendar-fill"></i>2023年10月02日</a>
+			<a><i class="kirafont icon-edit-fill"></i>390 字</a>
 			<a><i class="kirafont icon-time-circle-fill"></i>大概 1 分钟</a>
 		</div>
-		<h3><span id="学习环境">学习环境</span></h3><iframe src="//player.bilibili.com/player.html?aid=218872064&bvid=BV1o8411x7K3&cid=993131195&page=2" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-
-<p>建议同学们以视频中使用的VS（visual studio）为主，这将是我们以后最常用的编程软件，具体跟着视频中搭建环境就好。</p>
-<h3><span id="视频学习">视频学习</span></h3><p>在基础层面c和c++是几乎一致的，不用担心知识不互通的问题，请放心学习 <br><br>[c++链接一] <iframe src="//player.bilibili.com/player.html?aid=685254420&bvid=BV1ZU4y1D7PL&cid=755570534&page=2" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><br> <br><br>刚刚接触编程的同学推荐通过这个视频学习c&#x2F;c++。看完p2-p23，并且跟着敲过一遍代码，可以说基础编程语言就过关了。请优先使用VS进行学习，学长经验-小熊猫没有VS好用. <br><br>[c++链接二]<iframe src="//player.bilibili.com/player.html?aid=218872064&bvid=BV1o8411x7K3&cid=993131195&page=2" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><br> <br><br>入门的同学推荐通过这个视频学习c&#x2F;c++。看完p1-p89（若觉得指针不好理解请跳过相关章节，如p50-p60等，大一暂时用不上），并且跟着敲过一遍代码，可以说基础编程语言就过关了。</p>
-
+		<h3><span id="2023x2f10x2f1-pwm呼吸灯">2023&#x2F;10&#x2F;1 PWM呼吸灯</span></h3><p>如果led灯在10毫秒内，5毫秒打开，5毫秒关闭，(频率100Hz) 这时候灯光的亮灭速度赶不上开关速度(LED灯还没完全亮就又熄灭了)，<br>由于视觉暂留作用 人眼不感觉电灯在闪烁，而是感觉灯的亮度少了 因为高电平时间(占空比)为50% 亮度也就为之前的50%</p>
+<p>占空比越大，LED越亮。频率在50hz以上时，看不到闪烁；频率在50hz以下时，可看到闪烁。<br>所以，在频率一定下，可以用不同占空比（即pwm）改变LED灯的亮度。使其达到一个呼吸灯（灯亮度强弱不断变化）的效果</p>
+<h3><span id="2023x2f10x2f2-pwm电机调速">2023&#x2F;10&#x2F;2 PWM电机调速</span></h3><p>电机的作用是通过电生磁，将电能转化为机械能，使转子转动，实现各种运动控制。<br>占空比可以实现对电机转速的调节。当输出端高电平时，电机会转动，逐渐提速，在速度未达到最大时，使高电平突然变为低电平，电机由于铜线圈电感，有防止电流突变的作用，电机是不会立即停止的，会暂时保持原有的转速；此时再立即变为高电平，同样因为电感作用，暂时保持原来的转速。<br>以此往复，电机的转速就是周期内输出的平均电压值，所以pwm调节占空比就能调节电机速度了<br><img data-fancybox="gallery" data-sizes="auto" data-src="https://s1.imagehub.cc/images/2023/10/02/u16976402063596022076fm253fmtautoapp138fPNG.webp" alt="1" class="lazyload"></p>
+<h3><span id="2023x2f10x2f2">2023&#x2F;10&#x2F;2</span></h3>
 	</article>
 
 	 
@@ -297,7 +296,7 @@
 		const gitalk = new Gitalk({
 			clientID: '-id-',
 			clientSecret: '-key-',
-			id: 'C/C++入门',
+			id: '小贴士合集【十月】',
 			repo: '-issue repo name-',
 			owner: '-your github username-',
 			admin: '-your github username-',
