@@ -262,8 +262,8 @@
 		
 		<div class="kira-post-meta kira-rainbow" style="margin:10px 0!important;">
 			<a><i class="kirafont icon-calendar-fill"></i>2023年10月02日</a>
-			<a><i class="kirafont icon-edit-fill"></i>2.2k 字</a>
-			<a><i class="kirafont icon-time-circle-fill"></i>大概 9 分钟</a>
+			<a><i class="kirafont icon-edit-fill"></i>3k 字</a>
+			<a><i class="kirafont icon-time-circle-fill"></i>大概 12 分钟</a>
 		</div>
 		<h3><span id="2023x2f10x2f1-pwm呼吸灯">2023&#x2F;10&#x2F;1 PWM呼吸灯</span></h3><p>如果led灯在10毫秒内，5毫秒打开，5毫秒关闭，(频率100Hz) 这时候灯光的亮灭速度赶不上开关速度(LED灯还没完全亮就又熄灭了)，<br>由于视觉暂留作用 人眼不感觉电灯在闪烁，而是感觉灯的亮度少了 因为高电平时间(占空比)为50% 亮度也就为之前的50%</p>
 <p>占空比越大，LED越亮。频率在50hz以上时，看不到闪烁；频率在50hz以下时，可看到闪烁。<br>所以，在频率一定下，可以用不同占空比（即pwm）改变LED灯的亮度。使其达到一个呼吸灯（灯亮度强弱不断变化）的效果</p>
@@ -308,6 +308,30 @@
 <li><p>GPIO一般只能输出高低电平（0&#x2F;3.3v&#x2F;5v），我们如果需要获得区间内任意大小的电压（模拟信号），我们可以利用DAC将数字信号直接转换为模拟信号<br>提示：也可以利用之前学过的pwm进行数模转换（想一想pwm得到的模拟信号精度高不高，具体后续解释）</p>
 </li>
 </ol>
+<h3><span id="2023x2f10x2f23-adc一">2023&#x2F;10&#x2F;23 ADC（一）</span></h3><p>假设模拟信号的范围是0-3.3v，对应数字信号的范围是0-4095（用二进制表示为1111 1111）。<br>于是对应关系的式子为：数字信号值&#x3D;（模拟信号值&#x2F;3.3）*4096</p>
+<p>比如输入1V的电压，那么ADC返回的数字信号值是<br>1&#x2F; 3.3 ∗ 4096 &#x3D; 1241<br>反过来，当单片机收到ADC返回的是1241，单片机就可以知道待测电压是1V了。</p>
+<h3><span id="2023x2f10x2f24-adc二">2023&#x2F;10&#x2F;24 ADC（二）</span></h3><p>ADC工作原理大多为逐次逼近型。<br>未知的模拟信号转变为电压的形式后，输入比较器中。<br>另一边，用已知的数字信号输入DAC中，转化输出为模拟电压，也输入到比较器中。<br>比较器比较两处电压的大小，根据比较结果有如图右下角的过程，逐次逼近直到电压相等，说明两种信号等效，此时输入DAC的数字信号就是ADC转化结果，放入寄存器中储存下来。<br><img data-fancybox="gallery" data-sizes="auto" data-src="https://s1.imagehub.cc/images/2023/10/25/ADC.png" alt="1" class="lazyload"></p>
+<h3><span id="2023x2f10x2f25-adc三">2023&#x2F;10&#x2F;25 ADC（三）</span></h3><p>ADC全过程上节已经说过，这次分步讲解。ADC分为三个过程采样，量化，编码。</p>
+<ol>
+<li>采样：指将波形按一定采样频率（时间间隔）进行切分</li>
+<li>量化：取出采样后的散点</li>
+<li>编码：将得到的数据转化为二进制（数字信号）储存。</li>
+</ol>
+<img data-fancybox="gallery" data-sizes="auto" data-src="https://s1.imagehub.cc/images/2023/10/25/ADC.jpeg" alt="1" class="lazyload">
+
+<p>为了使量化后的散点图能展现原波形特点（称为采样不失真）<br>奈奎斯特采样定理说明，要达到这个效果，采样频率fs必须大于被测信号最高频率fn的两倍，即fs&gt;2*fn。<br>关于这个定理，参考下节</p>
+<h3><span id="2023x2f10x2f26-adc四">2023&#x2F;10&#x2F;26 ADC（四）</span></h3><p>以正弦波为例，fs为采样频率，fn为信号最高频率</p>
+<ol>
+<li><p>假设采样频率  fs&#x3D;fn<br>如下图所示，因为采样频率和被测信号频率一致，正弦波信号一个周期内只能采样到1个点，并且都在相同位置，最后ADC采样完成并量化出来的信号波形就是一条直线，明显不是正确的结果。</p>
+<img data-fancybox="gallery" data-sizes="auto" data-src="https://s1.imagehub.cc/images/2023/10/25/1290e6353971e9e8b.md.png" alt="1" class="lazyload">
+</li>
+<li><p>假设采样频率   fs&#x3D;（4&#x2F;3）* fn<br>我们稍微提高一点采样率，变为4&#x2F;3倍，在不同周期内，有的时候可以采样到1个点，有的时候可以采样到2个点，但是最后量化出来的线条还是失真严重，因此也不满足。</p>
+<img data-fancybox="gallery" data-sizes="auto" data-src="https://s1.imagehub.cc/images/2023/10/25/2b26712cb1c5bf555.md.png" alt="1" class="lazyload">
+</li>
+<li><p>假设采样频率   fs&#x3D;2fn<br>当我们采样率达到2倍信号频率的时候，假如说运气较好，正好第一个采样点就在正弦波的波峰或者波谷，那么在被测信号的每个周期内，正好可以采样到振幅最大和最小的两个点，量化后可以得到三角波，经过适当地处理后，可以恢复成原来的正弦波。</p>
+<img data-fancybox="gallery" data-sizes="auto" data-src="https://s1.imagehub.cc/images/2023/10/25/d10251bc5c44cc9df9595db629924b67.md.png" alt="1" class="lazyload"></li>
+</ol>
+<p>但是如果每个周期采样的两个点并不是位于波峰或者波谷的话，采样过来的信号同样会失真。因此2倍这个数字只是理论值，我们实际在使用的时候，为了不失真，一个周期内最好采样被测信号5个点以上。</p>
 
 	</article>
 
