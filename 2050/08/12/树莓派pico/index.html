@@ -262,7 +262,7 @@
 		
 		<div class="kira-post-meta kira-rainbow" style="margin:10px 0!important;">
 			<a><i class="kirafont icon-calendar-fill"></i>2050年08月12日</a>
-			<a><i class="kirafont icon-edit-fill"></i>329 字</a>
+			<a><i class="kirafont icon-edit-fill"></i>330 字</a>
 			<a><i class="kirafont icon-time-circle-fill"></i>大概 1 分钟</a>
 		</div>
 		<h3><span id="一pico引脚图">一.pico引脚图</span></h3><img data-fancybox="gallery" data-sizes="auto" data-src="https://z1.ax1x.com/2023/10/26/piZ8KmD.png" alt="1" class="lazyload">
@@ -274,7 +274,7 @@
 <h3><span id="三pico点灯测试用代码">三.pico点灯(测试用代码)</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">from machine import Pin <span class="hljs-comment">#从一个称为machine的库中导入了Pin这个功能，用来控制硬件设备上的引脚。</span><br>import time             <span class="hljs-comment">#导入time库，包含了与时间相关的函数和方法。</span><br><br>led = Pin(25, Pin.OUT) <span class="hljs-comment">#创建了一个名为led的对象，代表引脚号为25的GPIO（查看引脚图，led所在即引脚就是GP25）</span><br><span class="hljs-keyword">while</span> True:            <span class="hljs-comment">#这是一个无限循环的语句，意味着下面缩进的代码会一直重复执行，为了让程序一直运行，这是一种常见操作</span><br>	led.toggle()   <span class="hljs-comment">#用于切换LED灯的状态</span><br>	time.sleep(1)  <span class="hljs-comment">#延时1秒</span><br></code></pre></td></tr></table></figure>
 <p>若看到pico上的灯以一秒间隔闪烁一次，则成功</p>
 <h3><span id="四pico使用oled屏幕">四.pico使用oled屏幕</span></h3><p>oled相关资料链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1G1R53XXxYKB4UQ0FAlC4kQ?pwd=9nlj">https://pan.baidu.com/s/1G1R53XXxYKB4UQ0FAlC4kQ?pwd=9nlj</a> </p>
-<p>向pico导入链接里main.py和ssd1306.py两个文件，在main文件里运行即可。可更改main文件，得到不同的输出内容。</p>
+<p>向pico导入链接里main.py和ssd1306.py两个文件，在main.py文件里运行即可。可更改main文件，得到不同的输出内容。</p>
 
 	</article>
 
