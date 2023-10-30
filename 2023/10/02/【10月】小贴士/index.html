@@ -262,8 +262,8 @@
 		
 		<div class="kira-post-meta kira-rainbow" style="margin:10px 0!important;">
 			<a><i class="kirafont icon-calendar-fill"></i>2023年10月02日</a>
-			<a><i class="kirafont icon-edit-fill"></i>3k 字</a>
-			<a><i class="kirafont icon-time-circle-fill"></i>大概 12 分钟</a>
+			<a><i class="kirafont icon-edit-fill"></i>3.3k 字</a>
+			<a><i class="kirafont icon-time-circle-fill"></i>大概 13 分钟</a>
 		</div>
 		<h3><span id="2023x2f10x2f1-pwm呼吸灯">2023&#x2F;10&#x2F;1 PWM呼吸灯</span></h3><p>如果led灯在10毫秒内，5毫秒打开，5毫秒关闭，(频率100Hz) 这时候灯光的亮灭速度赶不上开关速度(LED灯还没完全亮就又熄灭了)，<br>由于视觉暂留作用 人眼不感觉电灯在闪烁，而是感觉灯的亮度少了 因为高电平时间(占空比)为50% 亮度也就为之前的50%</p>
 <p>占空比越大，LED越亮。频率在50hz以上时，看不到闪烁；频率在50hz以下时，可看到闪烁。<br>所以，在频率一定下，可以用不同占空比（即pwm）改变LED灯的亮度。使其达到一个呼吸灯（灯亮度强弱不断变化）的效果</p>
@@ -283,7 +283,7 @@
 <li>1000us————45度；</li>
 <li>1500us————90度；</li>
 <li>2000us———–135度；</li>
-<li>2500us———–180度；<br>得到一个数学公式：<br>高电平时间&#x3D;2000*（角度&#x2F;180）+500<br>变形可得：<br>角度&#x3D;（高电平时间-500）&#x2F;2000x180</li>
+<li>2500us———–180度；<br>得到一个数学公式：<br>高电平时间&#x3D;2000<em>（角度&#x2F;180）+500<br>变形可得：<br>角度&#x3D;（高电平时间-500）&#x2F;2000</em>180</li>
 </ol>
 <h3><span id="2023x2f10x2f6-模拟信号和数字信号">2023&#x2F;10&#x2F;6 模拟信号和数字信号</span></h3><p>信号可以分成连续信号和离散信号。<br>连续信号变化均匀，没有突变。<br>离散信号可以只有有限0，1两个值。<br>可以说连续变化的信号就是模拟信号，离散（不连续）的信号是数字信号。 <br><img data-fancybox="gallery" data-sizes="auto" data-src="https://s1.imagehub.cc/images/2023/10/13/7920c6db855576c2e46010a6eff90f2b.jpeg" alt="1" class="lazyload"></p>
 <h3><span id="2023x2f10x2f7-模拟信号的特点">2023&#x2F;10&#x2F;7 模拟信号的特点</span></h3><ol>
@@ -319,8 +319,6 @@
 </ol>
 <img data-fancybox="gallery" data-sizes="auto" data-src="https://s1.imagehub.cc/images/2023/10/25/ADC.jpeg" alt="1" class="lazyload">
 
-
-
 <h3><span id="2023x2f10x2f26-奈奎斯特采样定理">2023&#x2F;10&#x2F;26 奈奎斯特采样定理</span></h3><p>为了使量化后的散点图能展现原波形特点（称为采样不失真）<br>奈奎斯特采样定理说明，要达到这个效果，采样频率fs必须大于被测信号最高频率fn的两倍，即fs&gt;2*fn。</p>
 <p>以正弦波为例，fs为采样频率，fn为信号最高频率</p>
 <ol>
@@ -334,6 +332,17 @@
 <img data-fancybox="gallery" data-sizes="auto" data-src="https://s1.imagehub.cc/images/2023/10/25/d10251bc5c44cc9df9595db629924b67.md.png" alt="1" class="lazyload"></li>
 </ol>
 <p>但是如果每个周期采样的两个点并不是位于波峰或者波谷的话，采样过来的信号同样会失真。因此2倍这个数字只是理论值，我们实际在使用的时候，为了不失真，一个周期内最好采样被测信号5个点以上。</p>
+<h3><span id="2023x2f10x2f27-傅里叶变换">2023&#x2F;10&#x2F;27 傅里叶变换</span></h3><p>基波：一个周期性信号中频率最低的正弦波。振幅通常比其他谐波更高。<br>谐波：除了基波以外的所有频率为基波频率整数倍的正弦波。<br>任何非正弦波都可以视成是基波和无数不同频率，不同相位的谐波分量组成（傅里叶变换得到的结论）。<br>非正弦波由最小值过渡到最大值的时间越短，所含的谐波分量也就越多，波形所含谐波的频率也越高。</p>
+<p>举个例子</p>
+<p>第一幅图是 1 个正弦波 cos（x）<br>第二幅图是 2 个正弦波的叠加 比如cos (x) +a.cos (3x+φ)，有3个谐波分量<br>第三幅图是 4 个正弦波的叠加，有7个谐波分量<br>第四幅图是 10 个正弦波的叠加，有19个谐波分量</p>
+<p>随着正弦波数量（谐波分量）逐渐的增长，他们最终会叠加成一个标准的方波</p>
+<img data-fancybox="gallery" data-sizes="auto" data-src="https://s1.imagehub.cc/images/2023/10/30/ed9d1489ae77973586c156915b6e76e2.jpeg" alt="1" class="lazyload">
+
+<h3><span id="2023x2f10x2f28-运算放大器">2023&#x2F;10&#x2F;28 运算放大器</span></h3><img data-fancybox="gallery" data-sizes="auto" data-src="https://s1.imagehub.cc/images/2023/10/30/9fee598ed7943ff793af0d77de627692.jpeg" alt="1" class="lazyload">
+
+<h3><span id="2023x2f10x2f29-虚短-虚断">2023&#x2F;10&#x2F;29 虚短、虚断</span></h3><img data-fancybox="gallery" data-sizes="auto" data-src="https://s1.imagehub.cc/images/2023/10/30/a6532a8583963de87575e017e9178d35.jpeg" alt="1" class="lazyload">
+
+<h3><span id="2023x2f10x2f30-反向放大器">2023&#x2F;10&#x2F;30 反向放大器</span></h3><img data-fancybox="gallery" data-sizes="auto" data-src="https://s1.imagehub.cc/images/2023/10/30/7d362eff09278afeeab7ad394fe8c226.jpeg" alt="1" class="lazyload">
 
 	</article>
 
