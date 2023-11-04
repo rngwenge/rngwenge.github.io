@@ -262,8 +262,8 @@
 		
 		<div class="kira-post-meta kira-rainbow" style="margin:10px 0!important;">
 			<a><i class="kirafont icon-calendar-fill"></i>2050年08月12日</a>
-			<a><i class="kirafont icon-edit-fill"></i>1.5k 字</a>
-			<a><i class="kirafont icon-time-circle-fill"></i>大概 6 分钟</a>
+			<a><i class="kirafont icon-edit-fill"></i>1.6k 字</a>
+			<a><i class="kirafont icon-time-circle-fill"></i>大概 7 分钟</a>
 		</div>
 		<h3><span id="一pico引脚图">一.pico引脚图</span></h3><img data-fancybox="gallery" data-sizes="auto" data-src="https://z1.ax1x.com/2023/10/26/piZdmeP.png" alt="1" class="lazyload">
 
@@ -310,6 +310,9 @@
 <li>VRY   —–     GP27</li>
 <li>SW    —–     GP28</li>
 </ol>
+<p>注：5v接在GP10上，是因为直接接单片机VBUS（5v），摇杆adc读出来的值不对，你们可以试一下，我也不知道为什么，<br>我测试过3.3v供电，数据才符合，而板子上3.3v用了一个了，这里用gpio输出高电平，也就是3.3v了<br>但是要先这样声明一下，gpio才会输出高电平</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">handle = Pin(10,Pin.OUT) <span class="hljs-comment">#handle只是变量名，可以根据设备名称更改</span><br>handle.value(1) <span class="hljs-comment">#设置引脚为GP10，输出模式，输出高电平</span><br></code></pre></td></tr></table></figure>
+
 <p>adc读取摇杆的值</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash">from machine import Pin,ADC  <span class="hljs-comment">#导入PIN，ADC库</span><br>from time import <span class="hljs-built_in">sleep</span><br> <br>x = ADC(Pin(26,Pin.OUT))   <span class="hljs-comment">#分配引脚</span><br>y = ADC(Pin(27,Pin.OUT))<br>z = Pin(28,Pin.IN,Pin.PULL_UP)<br><span class="hljs-keyword">while</span> True:<br>    x_value = x.read_u16()<br>    y_value = y.read_u16()<br>    z_value = z.value()<br>    <br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;X = &#123;0:d&#125; \t\t   Y = &#123;1:d&#125;\t\t&quot;</span>.format(x_value,y_value),end=f<span class="hljs-string">&quot;z:&#123;z_value&#125;&quot;</span>)<br>    <span class="hljs-built_in">print</span>()<br>    <span class="hljs-built_in">sleep</span>(1)   <br></code></pre></td></tr></table></figure>
 
