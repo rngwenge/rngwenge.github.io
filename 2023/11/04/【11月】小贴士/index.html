@@ -262,8 +262,8 @@
 		
 		<div class="kira-post-meta kira-rainbow" style="margin:10px 0!important;">
 			<a><i class="kirafont icon-calendar-fill"></i>2023年11月04日</a>
-			<a><i class="kirafont icon-edit-fill"></i>547 字</a>
-			<a><i class="kirafont icon-time-circle-fill"></i>大概 2 分钟</a>
+			<a><i class="kirafont icon-edit-fill"></i>1.2k 字</a>
+			<a><i class="kirafont icon-time-circle-fill"></i>大概 5 分钟</a>
 		</div>
 		<h3><span id="2023x2f11x2f1-dac一">2023&#x2F;11&#x2F;1 DAC（一）</span></h3><img data-fancybox="gallery" data-sizes="auto" data-src="https://s1.imagehub.cc/images/2023/11/04/c3bb60c19dc7cb391b25936654a141ca.jpeg" alt="1" class="lazyload">
 
@@ -291,6 +291,40 @@
 <h3><span id="2023x2f11x2f10-施密特触发器">2023&#x2F;11&#x2F;10 施密特触发器</span></h3><img data-fancybox="gallery" data-sizes="auto" data-src="https://s1.imagehub.cc/images/2023/11/11/badf98525fd44c89eb3f3ba6815ab15c.jpeg" alt="1" class="lazyload">
 
 <h3><span id="2023x2f11x2f11-计算机接口一">2023&#x2F;11&#x2F;11 计算机接口（一）</span></h3><img data-fancybox="gallery" data-sizes="auto" data-src="https://s1.imagehub.cc/images/2023/11/11/b758f3fd892d8bdbf79450920137409b.jpeg" alt="1" class="lazyload">
+
+<h3><span id="2023x2f11x2f12-第一次摸鱼">2023&#x2F;11&#x2F;12 第一次摸鱼</span></h3><h3><span id="2023x2f11x2f13-计算机接口二">2023&#x2F;11&#x2F;13 计算机接口（二）</span></h3><img data-fancybox="gallery" data-sizes="auto" data-src="https://s1.imagehub.cc/images/2023/11/18/144805c146f630b0d00a1b4e03182635.jpeg" alt="1" class="lazyload">
+
+<h3><span id="2023x2f11x2f14-串口通信">2023&#x2F;11&#x2F;14 串口通信</span></h3><img data-fancybox="gallery" data-sizes="auto" data-src="https://s1.imagehub.cc/images/2023/11/18/85916a04749b681ad532d7c63442126e.jpeg" alt="1" class="lazyload">
+
+<h3><span id="2023x2f11x2f15-串口数据传输">2023&#x2F;11&#x2F;15 串口数据传输</span></h3><ol>
+<li>波特率：指串口通信传输数据的速度</li>
+<li>起始位：标志一帧数据传输的开始，固定为低电平</li>
+<li>数据位： 传输8位数据，即一个字节，数据用高低电平1&#x2F;0表示</li>
+<li>校验位：检验传输数据过程中，数据是否错乱<br>校验位分为三种：<br>① 无校验：不需要校验位<br>② 奇校验：发送方根据8位数据中1的个数设置校验位，若发送的1的个数为偶数，则将校验位设置为1；<br>若发送的1的个数已经为奇数，则将校验位设置为0。总之，保证发送的数据中有奇数个1。<br>③ 偶校验：保证发送的数据中有偶数个1</li>
+<li>停止位：标志一帧数据传输的结束，固定为高电平<br>通信设备双方需要提前设置好校验方式，接收方需要根据对应的校验方式，对1的个数进行判断，若1的个数无误，则传输正确。若1的个数不对，则说明数据异常（注:如出现多个数据同时异常，奇偶校验的方式则可能误判）</li>
+</ol>
+<p>所以串口通信中，一帧数据总共为10~11位（根据有无校验位）</p>
+<h3><span id="2023x2f11x2f16-第二次摸鱼">2023&#x2F;11&#x2F;16 第二次摸鱼</span></h3><h3><span id="2023x2f11x2f17-spi通信">2023&#x2F;11&#x2F;17 SPI通信</span></h3><p>不同于iic，串口的另一种通信方式。<br>通信引脚如下：</p>
+<ol>
+<li>SCK：时钟线</li>
+<li>MOSI：固定主机配置为数据输出脚，从机配置为数据输入脚</li>
+<li>MISO：固定主机配置为数据输入脚，从机配置为数据输出脚</li>
+<li>SS：控制与哪个从机通信，通常是低电平有效信号。</li>
+</ol>
+<img data-fancybox="gallery" data-sizes="auto" data-src="https://s1.imagehub.cc/images/2023/11/18/5c2645162f5477931b320397de6add56.md.jpeg" alt="1" class="lazyload">
+
+<h3><span id="2023x2f11x2f18-spi通信优缺点">2023&#x2F;11&#x2F;18 SPI通信优缺点</span></h3><p>SPI的优点</p>
+<ol>
+<li>全双工通信（指可以同时发送和接收数据），因为有分离的MOSI和MISO分别负责数据输出和输入；</li>
+<li>高速数据传输速率（约为iic的2倍）。</li>
+<li>极其灵活的数据传输，不限于8位，它可以是任意长度；</li>
+</ol>
+<p>SPI的缺点</p>
+<ol>
+<li>需要更多的引脚，使用四根信号线（I2C和串口只使用两根信号线）；</li>
+<li>传输数据只能支持非常短的距离；</li>
+<li>没有任何形式的错误检查，如串口（UART）中的奇偶校验</li>
+</ol>
 
 	</article>
 
