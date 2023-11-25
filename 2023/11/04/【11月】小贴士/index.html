@@ -262,8 +262,8 @@
 		
 		<div class="kira-post-meta kira-rainbow" style="margin:10px 0!important;">
 			<a><i class="kirafont icon-calendar-fill"></i>2023年11月04日</a>
-			<a><i class="kirafont icon-edit-fill"></i>1.2k 字</a>
-			<a><i class="kirafont icon-time-circle-fill"></i>大概 5 分钟</a>
+			<a><i class="kirafont icon-edit-fill"></i>2.1k 字</a>
+			<a><i class="kirafont icon-time-circle-fill"></i>大概 8 分钟</a>
 		</div>
 		<h3><span id="2023x2f11x2f1-dac一">2023&#x2F;11&#x2F;1 DAC（一）</span></h3><img data-fancybox="gallery" data-sizes="auto" data-src="https://s1.imagehub.cc/images/2023/11/04/c3bb60c19dc7cb391b25936654a141ca.jpeg" alt="1" class="lazyload">
 
@@ -324,6 +324,20 @@
 <li>需要更多的引脚，使用四根信号线（I2C和串口只使用两根信号线）；</li>
 <li>传输数据只能支持非常短的距离；</li>
 <li>没有任何形式的错误检查，如串口（UART）中的奇偶校验</li>
+</ol>
+<h3><span id="2023x2f11x2f19-通信协议总结">2023&#x2F;11&#x2F;19 通信协议总结</span></h3><img data-fancybox="gallery" data-sizes="auto" data-src="https://s1.imagehub.cc/images/2023/11/25/e49220824763fafcbd4f5b3f80314fa8.jpeg" alt="1" class="lazyload">
+
+<h3><span id="2023x2f11x2f20-硬件加速">2023&#x2F;11&#x2F;20 硬件加速</span></h3><p>通常计算机内部数据处理都是在CPU（中央处理器）中进行的，处理的数据过多会导致CPU处理效率低下。<br>利用电脑的其他硬件设备，分担CPU的一部分任务，降低CPU使用率，从而达到硬件加速的目的。</p>
+<p>常见的硬件加速设备如下：<br>1： GPU（图形处理器）：计算机的图形化界面越来越丰富，图形的处理过程中会有大量矩阵计算，对于CPU来说，其实并不适合于矩阵的计算，所以专门设计了GPU来进行图像的处理。例如使用英伟达的CUDA或OpenCL将计算任务从CPU转移到GPU上执行，实现硬件加速。</p>
+<p>2： FPGA（现场可编程门阵列）：使用可重新编程的FPGA芯片来实现硬件加速。FPGA可以根据特定应用的需求重新配置硬件电路，从而提供最佳的加速功能。</p>
+<p>3： AI加速器：针对人工智能和机器学习任务设计的专用加速器，如Google的TPU或NVIDIA的深度学习加速器等，以加速神经网络训练和推理任务。</p>
+<h3><span id="2023x2f11x2f21-树莓派pico之pio">2023&#x2F;11&#x2F;21 树莓派pico之PIO</span></h3><p>我们看这个代码<br>print(“hello”)<br>我们不必关心单片机存储数据的方式，或者如何产生时钟信号等，代码的处理会在cpu中运行，但是处理速度受限于时钟信号发生频率。<br>然而，当我们使用pico上可编程输入和输出（PIO）时，我们可以在更低的水平上处理代码，实现的硬件加速，比如，高速的位操作、精确的时序控制等，在性能上可以达到很高的水平，使得某些操作的执行速度提升数十倍甚至上百倍。PIO是Pico比其他单片机真正具有优势的地方。</p>
+<h3><span id="2023x2f11x2f22-看门狗">2023&#x2F;11&#x2F;22 看门狗</span></h3><p>单片机一切正常，看门狗就不会叫，一旦出现异常,就会狗叫（dog）<br>回到正题，看门狗是用来监测单片机运行状态和解决程序引起的故障的。<br>单片机在外界的干扰下，可能会出现程序出错导致出现死循环，看门狗的作用就是防止这种情况。</p>
+<p>单片机程序启动后，有一个定时器会开始倒计时，当定时器为0时，会给单片机CPU发送复位信号，CPU可以让看门狗定时器重置，简称“喂狗”，看门狗等待下一次投喂。<br>如果时间到后还不去喂狗(表示单片机已经挂了)，定时器就会溢出，引起看门狗中断，造成系统复位重启。</p>
+<h3><span id="2023x2f11x2f23-主流的操作系统">2023&#x2F;11&#x2F;23 主流的操作系统</span></h3><ol>
+<li>Windows操作系统<br>优点：软件丰富，软件兼容性好，门槛相对较低，易用，对普通用户友好，对游戏与显卡的支持比较好，界面UI做的很好。<br>缺点：不开源、木马病毒较多、安全性较差。</li>
+<li>Linux操作系统<br>Linux是一套免费使用和自由传播的操作系统， 常用Linux发行版操作系统有Ubuntu、CentOS等，是开源的操作系统。<br>优点：系统稳定性与流畅度高、安全性高、开源、系统的漏洞更容易被发现和修补 。<br>缺点：软件兼容性差，如果不熟知Linux命令，使用比较难。</li>
+<li>macOS操作系统<br>优点：UI更美、界面简约美观、无广告、高效、效率高。<br>缺点：macOS系统不开源，贵。</li>
 </ol>
 
 	</article>
