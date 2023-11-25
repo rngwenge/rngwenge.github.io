@@ -262,7 +262,7 @@
 		
 		<div class="kira-post-meta kira-rainbow" style="margin:10px 0!important;">
 			<a><i class="kirafont icon-calendar-fill"></i>2050年08月12日</a>
-			<a><i class="kirafont icon-edit-fill"></i>4.2k 字</a>
+			<a><i class="kirafont icon-edit-fill"></i>4.3k 字</a>
 			<a><i class="kirafont icon-time-circle-fill"></i>大概 22 分钟</a>
 		</div>
 		<h3><span id="一pico引脚图">一.pico引脚图</span></h3><img data-fancybox="gallery" data-sizes="auto" data-src="https://z1.ax1x.com/2023/10/26/piZdmeP.png" alt="1" class="lazyload">
@@ -349,6 +349,7 @@
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs bash">from machine import Pin, UART<br>import time<br><br><span class="hljs-comment"># 初始化串口，设置波特率和引脚</span><br>uart = UART(0, baudrate=115200, tx=Pin(0), rx=Pin(1))<br>led = machine.Pin(25, machine.Pin.OUT)  <br><br>uart.write(<span class="hljs-string">&quot;UART TEST\r\n&quot;</span>)  <span class="hljs-comment"># 单片机通过串口向电脑发送测试信息</span><br><span class="hljs-comment"># 在电脑串口工具输入1则打开LED,0关闭LED</span><br><br><span class="hljs-keyword">while</span> True:<br>    <span class="hljs-keyword">if</span> uart.any() != False:  <span class="hljs-comment"># 如果串口接收到正常数据</span><br>        buf = uart.read(1)  <span class="hljs-comment"># 读取一个字节的数据（参数代表读取字节个数）</span><br>        <span class="hljs-keyword">if</span> buf == b<span class="hljs-string">&#x27;1&#x27;</span>:   <span class="hljs-comment">#b 表示字节串的前缀</span><br>            led.on() <br>            uart.write(<span class="hljs-string">&quot;LED ON \r\n&quot;</span>)  <span class="hljs-comment"># 发送串口信息，表示LED已打开 \r\n&quot; 表示回车符和换行符</span><br>        <span class="hljs-keyword">elif</span> buf == b<span class="hljs-string">&#x27;0&#x27;</span>:<br>            led.off()  <br>            uart.write(<span class="hljs-string">&quot;LED OFF \r\n&quot;</span>)  <span class="hljs-comment"># 发送串口信息，表示LED已关闭</span><br></code></pre></td></tr></table></figure>
 
+<h3><span id="十一自学教程推荐">十一.自学教程推荐</span></h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/slofslb/category_11328828.html?spm=1001.2014.3001.5482">https://blog.csdn.net/slofslb/category_11328828.html?spm=1001.2014.3001.5482</a></p>
 
 	</article>
 
